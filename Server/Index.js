@@ -19,7 +19,7 @@ export const getPosts = async () => {
             }
             slug
             featuredImage {
-              url
+              fileName
             }
             excerpt
           }

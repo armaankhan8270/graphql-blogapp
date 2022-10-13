@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { getPosts } from "../Server/Index.js";
+import Blogs from "../Components/Blogs";
 
 export default function Home({ posts }) {
   return (
@@ -12,7 +13,17 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="text-center">Armmaan Khan</h1>
-      {console.log(posts)}
+      {console.log(posts[0].node.slug)}
+      {posts.map((data, ind) => (
+        <Blogs
+          title={data?.node.slug}
+          name={data.node.author.name}
+          excerpt={data.node.excerpt}
+          bio={data.node.author.bio}
+          key={data.title}
+        />
+      ))}
+      <Blogs />
     </div>
   );
 }
