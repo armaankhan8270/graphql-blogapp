@@ -13,13 +13,15 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className="text-center">Armmaan Khan</h1>
-      {console.log(posts[0].node.slug)}
+      {console.log(posts[0].node.createdBy.createdAt)}
       {posts.map((data, ind) => (
         <Blogs
           title={data?.node.slug}
           name={data.node.author.name}
           excerpt={data.node.excerpt}
+          time={data.node.createdBy.createdAt}
           bio={data.node.author.bio}
+          img={data.node.featuredImage?.url}
           key={data.title}
         />
       ))}

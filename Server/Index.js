@@ -2,14 +2,14 @@ import { request, gql } from "graphql-request";
 const url = process.env.GRAPHQL_API;
 export const getPosts = async () => {
   const query = gql`
-    query Assets {
+    query MyQuery {
       postsConnection {
         edges {
           node {
             author {
+              name
               bio
               id
-              name
               photo {
                 url
               }
@@ -17,20 +17,18 @@ export const getPosts = async () => {
             createdBy {
               createdAt
             }
-            slug
             featuredImage {
-              fileName
+              url
             }
+            slug
+            title
             excerpt
           }
         }
       }
-      categoryS {
-        name
-        slug
-      }
     }
   `;
+
   const result = await request(url, query);
   return result.postsConnection.edges;
 };

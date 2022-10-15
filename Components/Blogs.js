@@ -1,6 +1,6 @@
 import React from "react";
 
-const Blogs = ({ title, name, bio, excerpt }) => {
+const Blogs = ({ title, name, bio, excerpt, img, time }) => {
   //   console.log(post?.node + "aa");
   return (
     <div>
@@ -123,8 +123,9 @@ const Blogs = ({ title, name, bio, excerpt }) => {
             <div>
               <img
                 class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
-                src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+                // src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
                 alt=""
+                src={img}
               />
 
               <div class="mt-8">
@@ -142,11 +143,11 @@ const Blogs = ({ title, name, bio, excerpt }) => {
                       href="#"
                       class="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
                     >
-                      Tom Hank
+                      {bio}
                     </a>
 
                     <p class="text-sm text-gray-500 dark:text-gray-400">
-                      February 19, 2022
+                      {time?.slice(0, 10)}
                     </p>
                   </div>
 
