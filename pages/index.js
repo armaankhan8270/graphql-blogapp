@@ -30,7 +30,6 @@ export default function Home({ posts }) {
           key={data.title}
         />
       ))}
-      {/* <Blogs /> */}
     </div>
   );
 }
