@@ -5,8 +5,12 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
   //   console.log(post?.node + "aa");
   return (
     <div>
-      <div class="max-w-2xl lg:my-12 lg:mx-44 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <img class="object-cover w-full h-64" src={img} alt="Article" />
+      <div class="max-w-2xl lg:my-12 lg:p-8 lg:mx-44 overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <img
+          class="object-cover w-full h-64  shadow-md"
+          src={img}
+          alt="Article"
+        />
 
         <div class="p-6">
           <div>
@@ -38,7 +42,7 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
             <div class="flex items-center">
               <div class="flex items-center">
                 <img
-                  class="object-cover h-10 rounded-full"
+                  class="object-cover  h-10 rounded-full"
                   src={img}
                   alt="Avatar"
                 />
