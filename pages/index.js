@@ -1,12 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { getPosts } from "../Server/Index.js";
+import { getPosts, GetRecentPost } from "../Server/Index.js";
 import Blogs from "../Components/Blogs";
 import Navbar from "../Components/Navbar";
+import RecentPosts from "./Recent";
+import moment from "moment";
 // import background from "/pexels-picography-4458.jpg";
 
-export default function Home({ posts }) {
+export default function Home({ posts, Recnt }) {
   return (
     <div className="container mx-auto px-10 mb-10 bg-teal-500 rounded-xl  lg:py-7 w-screen h-s">
       <Head>
@@ -18,24 +20,45 @@ export default function Home({ posts }) {
       {/* <h1 className="text-center">Armmaan Khan</h1> */}
 
       {console.log(posts[0].node.createdBy.createdAt)}
-      {posts.map((data, ind) => (
-        <Blogs
-          title={data?.node.slug}
-          name={data.node.author.name}
-          excerpt={data.node.excerpt}
-          time={data.node.createdBy.createdAt}
-          bio={data.node.author.bio}
-          slug={data.node.slug}
-          img={data.node.featuredImage?.url}
-          key={data.title}
-        />
-      ))}
+      {console.log(Recnt ? Recnt[0].featuredImage.url : "not ")}
+      <div className="border-2 border-white lg:flex ">
+        <div className="w-full lg:w-[70%]">
+          {posts.map((data, ind) => (
+            <Blogs
+              title={data?.node.slug}
+              name={data.node.author.name}
+              excerpt={data.node.excerpt}
+              time={data.node.createdBy.createdAt}
+              bio={data.node.author.bio}
+              slug={data.node.slug}
+              img={data.node.featuredImage?.url}
+              key={data.title}
+            />
+          ))}
+        </div>
+        <div className="w-[30%] invisible lg:visible">
+          {Recnt.map((data, ind) => {
+            return (
+              <RecentPosts
+                img={data.featuredImage?.url}
+                href={`posts/${data.slug}`}
+                time={moment(data.createdAt).format("MMM DD Y")}
+                title={data.title}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
+  const Recnt = (await GetRecentPost()) || [];
   return {
-    props: { posts },
+    props: { posts, Recnt },
+    // props: { Recnt },
   };
+  // return {
+  // };
 }
