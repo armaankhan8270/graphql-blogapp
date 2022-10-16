@@ -21,8 +21,8 @@ export default function Home({ posts, Recnt }) {
 
       {console.log(posts[0].node.createdBy.createdAt)}
       {console.log(Recnt ? Recnt[0].featuredImage.url : "not ")}
-      <div className="border-2 border-white lg:flex ">
-        <div className="w-full lg:w-[70%]">
+      <div className="lg:flex ">
+        <div className="w-full shadow-md lg:p-5 lg:w-[70%]">
           {posts.map((data, ind) => (
             <Blogs
               title={data?.node.slug}
@@ -36,7 +36,7 @@ export default function Home({ posts, Recnt }) {
             />
           ))}
         </div>
-        <div className="w-[30%] invisible lg:visible">
+        <div className="w-[30%] invisible lg:visible shadow-lg h-screen m-4 rounded-lg">
           {Recnt.map((data, ind) => {
             return (
               <RecentPosts
