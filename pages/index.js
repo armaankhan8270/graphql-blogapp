@@ -1,14 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { getPosts, GetRecentPost } from "../Server/Index.js";
+import { GetCatogories, getPosts, GetRecentPost } from "../Server/Index.js";
 import Blogs from "../Components/Blogs";
 import Navbar from "../Components/Navbar";
 import RecentPosts from "./Recent";
 import moment from "moment";
+import Categories from "./Categories";
 // import background from "/pexels-picography-4458.jpg";
 
-export default function Home({ posts, Recnt }) {
+export default function Home({ posts, Recnt, cateGories }) {
   return (
     <div className="container mx-auto px-10 mb-10 bg-teal-500 rounded-xl  lg:py-7 w-screen h-s">
       <Head>
@@ -19,9 +20,25 @@ export default function Home({ posts, Recnt }) {
       {/* <Navbar /> */}
       {/* <h1 className="text-center">Armmaan Khan</h1> */}
 
-      {console.log(posts[0].node.createdBy.createdAt)}
+      {console.log(posts[3])}
       {console.log(Recnt ? Recnt[0].featuredImage.url : "not ")}
+      {console.log(cateGories[0].slug)}
+      <div className="bg-white shadow-md w-64 ">
+        <h1 className="text-3xl px-4 py-4 font-extrabold text-center text-white bg-teal-700 ">
+          Categories
+        </h1>
+        {cateGories.map((data, ind) => (
+          <Categories
+            title={data?.name}
+            href={data.slug}
+            // img={data.node.featuredImage?.url}
+            key={data.title}
+          />
+        ))}
+      </div>
       <div className="lg:flex ">
+        {/* <Category href={cateGories[0].slug} title={cateGories[0].title} /> */}
+
         <div className="w-full shadow-md lg:p-5 lg:w-[70%]">
           {posts.map((data, ind) => (
             <Blogs
@@ -55,8 +72,9 @@ export default function Home({ posts, Recnt }) {
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
   const Recnt = (await GetRecentPost()) || [];
+  const cateGories = (await GetCatogories()) || [];
   return {
-    props: { posts, Recnt },
+    props: { posts, Recnt, cateGories },
     // props: { Recnt },
   };
   // return {

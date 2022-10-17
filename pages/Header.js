@@ -1,9 +1,11 @@
 import React from "react";
+import Check from "../Components/Check";
 import Navbar from "../Components/Navbar";
 
 const Header = () => {
   return (
     <div>
+      <Check />
       {/* <Navbar /> */}
       <div className="relative">
         <img

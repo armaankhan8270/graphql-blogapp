@@ -53,6 +53,7 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
                   role="link"
                 >
                   {name}
+                  <p className="text-xs">{bio}</p>
                 </a>
               </div>
               <span class="mx-1 text-xs text-gray-600 dark:text-gray-300">

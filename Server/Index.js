@@ -48,3 +48,32 @@ export const GetRecentPost = async () => {
   const result = await request(url, query);
   return result.posts;
 };
+export const GetCatogories = async () => {
+  const query = gql`
+    query MyQuery {
+      categoryS {
+        id
+        name
+        slug
+      }
+    }
+  `;
+  const result = await request(url, query);
+  return result.categoryS;
+};
+export const GetAuthors = async () => {
+  const query = gql`
+    query MyQuery {
+      authors {
+        name
+        photo {
+          url
+        }
+        bio
+        id
+      }
+    }
+  `;
+  const result = await request(url, query);
+  return result.authors;
+};
