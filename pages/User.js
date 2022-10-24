@@ -126,42 +126,43 @@ const TableUser = ({ user }) => {
             </tr>
           </thead>
           <tbody>
-            {user.map((data, ind) => {
-              <tr
-                key={ind}
-                class="bg-white text-black border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-              >
-                <td class="p-4 w-4"></td>
-                <th
-                  scope="row"
-                  class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white"
+            {user.map((users, ind) => {
+              return (
+                <tr
+                  key={ind}
+                  class="bg-white text-black border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
-                  <img class="w-10 h-10 rounded-full" src={data.photo?.url} />
-                  <div class="pl-3">
-                    <div class="text-base font-semibold">{data.name}</div>
-                    <div class="font-normal text-gray-500">
-                      {data.name}@gamil.com
+                  <td class="p-4 w-4"></td>
+                  <th
+                    scope="row"
+                    class="flex items-center py-4 px-6 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    <img
+                      class="w-10 h-10 rounded-full"
+                      src={users.photo?.url}
+                    />
+                    <div class="pl-3">
+                      <div class="text-base font-semibold">{users.name}</div>
+                      <div class="font-normal text-gray-500">
+                        {user[0].name}@gamil.com
+                      </div>
                     </div>
-                  </div>
-                </th>
-                <td class="py-4 px-6">{data.bio}</td>
-                <td class="py-4 px-6">
-                  <div class="flex items-center">
-                    <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div>{" "}
-                    {data.bio}
-                  </div>
-                </td>
-              </tr>;
+                  </th>
+                  <td class="py-4 px-6">{users.bio}</td>
+                  <td class="py-4 px-6">
+                    <div class="flex items-center">
+                      {/* <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div>{" "} */}
+                      {user[0].bio}
+                    </div>
+                  </td>
+                </tr>
+              );
             })}
+            ;
           </tbody>
+          ;
         </table>
       </div>
-      {user[1].name}
-      {user[1].bio}
-      <img
-        className="px-44 py-44 m-44 w-1/2 rounded-3xl"
-        src={user[1].photo?.url}
-      />
     </div>
   );
 };

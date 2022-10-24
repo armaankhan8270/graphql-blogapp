@@ -7,7 +7,7 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
     <div className="flex lg:w-full gap-3 lg:gap-14">
       <div class="max-w-2xl my-3  lg:my-12 lg:p-8 w-[80%] shadow-transparent overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <img
-          class="object-cover p-12 w-full h-64 shadow-teal-500 shadow-md"
+          class="object-cover p-12 w-full h-64 shadow-purple-500 shadow-md"
           src={img}
           alt="Article"
         />

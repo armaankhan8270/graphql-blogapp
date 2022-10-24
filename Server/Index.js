@@ -77,3 +77,33 @@ export const GetAuthors = async () => {
   const result = await request(url, query);
   return result.authors;
 };
+export const GetPostBySlug = async (slug) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      post(where: { slug: $slug }) {
+        author {
+          name
+          bio
+          id
+          photo {
+            url
+          }
+        }
+        createdBy {
+          createdAt
+        }
+        featuredImage {
+          url
+        }
+        slug
+        title
+        excerpt
+        contetnt {
+          raw
+        }
+      }
+    }
+  `;
+  const result = await request(url, query, { slug });
+  return result;
+};
