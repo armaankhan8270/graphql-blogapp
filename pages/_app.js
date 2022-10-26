@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }) {
       <style>{`
   body {
     background: ${"whitesmoke"};
+    font-family: 
+    Montserrat, sans-serif;
   }
 `}</style>
     </LayOut>

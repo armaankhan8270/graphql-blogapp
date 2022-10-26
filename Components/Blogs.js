@@ -1,11 +1,12 @@
 import React from "react";
 import moment from "moment";
+import Link from "next/link";
 
 const Blogs = ({ title, slug, name, bio, excerpt, img, time, contetnt }) => {
   const show = true;
   //   console.log(post?.node + "aa");
   return (
-    <div className="flex px-4 rounded-md shadow-lg lg:px-7 lg:w-full gap-3 lg:gap-14">
+    <div className="flex capitalize div px-4 rounded-md shadow-lg lg:px-7 lg:w-full gap-3 lg:gap-14">
       <div class="max-w-2xl my-3 shadow-lg  bg-white lg:my-12 lg:p-8 w-[100%] shadow-transprent overflow-hidden bg-whit rounded-lg dark:bg-gray-800">
         <img
           class="object-cover lg:w-full px-6 lg:mx-0    lg:h-64   shadow-lg rounded-t-lg lg:rounded-lg  "
@@ -14,7 +15,7 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time, contetnt }) => {
         />
 
         <div class="p-6 text-sm">
-          <p className="text-center text-xl lg:text-3xl lg:p-3 text-extrabold">
+          <p className="text-center text-xl uppercase lg:text-3xl lg:p-3 text-extrabold">
             {title}
           </p>
 
@@ -31,15 +32,15 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time, contetnt }) => {
                 ⌚ {moment(time).format("MMM DD yyy")}
               </p>
             </p>
-            <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
-              <a
+            <span class="text-xs font-medium uppercase dark:text-blue-400">
+              <Link
                 href={`/post/${slug}`}
                 class="block mt-2  font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
                 tabindex="0"
                 role="link"
               >
                 {slug}
-              </a>
+              </Link>
               {/* {title} */}
             </span>
             <h1

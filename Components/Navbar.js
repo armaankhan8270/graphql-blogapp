@@ -7,6 +7,7 @@ import {
   IconButton,
   Avatar,
 } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function Navbars({ img }) {
   const [openNav, setOpenNav] = useState(false);
@@ -26,9 +27,9 @@ export default function Navbars({ img }) {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="/Header" className="flex items-center">
-          Home
-        </a>
+        <Link href="/Header">
+          <a className="flex items-center">Home</a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -36,9 +37,9 @@ export default function Navbars({ img }) {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="/" className="flex items-center">
-          Blogs
-        </a>
+        <Link href="/">
+          <a className="flex items-center">Blogs</a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -46,9 +47,9 @@ export default function Navbars({ img }) {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="/User" className="flex items-center">
-          users
-        </a>
+        <Link href="/User">
+          <a className="flex items-center">users</a>
+        </Link>
       </Typography>
       <Typography
         as="li"

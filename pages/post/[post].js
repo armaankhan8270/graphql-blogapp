@@ -30,8 +30,10 @@ const Post = ({ poost }) => {
 
   return (
     <div>
-      <p>Post: {post}</p>
-      <div className="shadow-md bg-blue-gray-200  lg:mx-32 lg:px-44">
+      <div className="text-center font-serif uppercase p-3 text-3xl ">
+        Title : {post}
+      </div>
+      <div className="shadow-lg drop-shadow-xl shadow-blue-gray-700 bg-gray-100 p-2 rounded-xl m lg:mx-32 lg:px-44">
         <Blogs
           title={poost.slug}
           name={poost.author.name}
