@@ -4,7 +4,7 @@ import Navbars from "./Navbar";
 
 const LayOut = ({ children }) => {
   return (
-    <div>
+    <div className="">
       <Navbars />
       {children}
     </div>

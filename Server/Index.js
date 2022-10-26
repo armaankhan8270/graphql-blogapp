@@ -105,5 +105,5 @@ export const GetPostBySlug = async (slug) => {
     }
   `;
   const result = await request(url, query, { slug });
-  return result;
+  return result.post;
 };

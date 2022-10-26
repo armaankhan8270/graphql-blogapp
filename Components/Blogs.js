@@ -1,19 +1,36 @@
 import React from "react";
 import moment from "moment";
 
-const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
+const Blogs = ({ title, slug, name, bio, excerpt, img, time, contetnt }) => {
+  const show = true;
   //   console.log(post?.node + "aa");
   return (
-    <div className="flex lg:w-full gap-3 lg:gap-14">
-      <div class="max-w-2xl my-3  lg:my-12 lg:p-8 w-[80%] shadow-transparent overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+    <div className="flex px-4 rounded-md shadow-lg lg:px-7 lg:w-full gap-3 lg:gap-14">
+      <div class="max-w-2xl my-3 shadow-lg  bg-white lg:my-12 lg:p-8 w-[100%] shadow-transprent overflow-hidden bg-whit rounded-lg dark:bg-gray-800">
         <img
-          class="object-cover p-12 w-full h-64 shadow-purple-500 shadow-md"
+          class="object-cover lg:w-full px-6 lg:mx-0    lg:h-64   shadow-lg rounded-t-lg lg:rounded-lg  "
           src={img}
           alt="Article"
         />
 
-        <div class="p-6">
-          <div>
+        <div class="p-6 text-sm">
+          <p className="text-center text-xl lg:text-3xl lg:p-3 text-extrabold">
+            {title}
+          </p>
+
+          <div className="shdaow-gray-200">
+            <p className="text-3xl shadow-md items-center gap-3 flex p-3">
+              <img
+                class="object-cover  h-10 rounded-full"
+                src={img}
+                alt="Avatar"
+              />
+              <p className="">{name}</p>
+              <p className="pl-12 text-gray-400 text-sm">
+                {" "}
+                ⌚ {moment(time).format("MMM DD yyy")}
+              </p>
+            </p>
             <span class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
               <a
                 href={`/post/${slug}`}
@@ -33,9 +50,10 @@ const Blogs = ({ title, slug, name, bio, excerpt, img, time }) => {
             >
               {slug}
             </h1>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p class="mt-2 text-sm shadow-md p-3 text-gray-600 dark:text-gray-400">
               {excerpt}
             </p>
+            {show ? <p>{contetnt}</p> : "Show More"}
           </div>
 
           <div class="mt-4">
